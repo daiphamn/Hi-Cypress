@@ -1,0 +1,18 @@
+[
+    {
+        "username": "hoadoan",
+        "password": null,
+        "expected": "warning icon"
+    },
+    {
+        "username": null,
+        "password": "Password@123",
+        "expected": "warning icon"
+    },
+    {
+        "username": null,
+        "password": null,
+        "expected": "warning icon"
+    }    
+]
+    

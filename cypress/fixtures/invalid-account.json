@@ -1,0 +1,12 @@
+[
+    {
+        "username": "hoadoan",
+        "password": "1",
+        "expected": "Invalid username or password!"
+    },
+    {
+        "username": "h1",
+        "password": "Password@123",
+        "expected": "Invalid username or password!"
+    }
+]

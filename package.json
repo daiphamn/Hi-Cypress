@@ -1,0 +1,36 @@
+{
+	"name": "democypress",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"clean": "rm -rf dist",
+		"cy:open": "npx cypress open",
+		"cy:run": "npx cypress run --env allure=true",
+		"cy:runall:chrome": "npx cypress run --spec ./cypress/e2e/ui/*.cy.js --headed --browser chrome",
+		"cy:run:chrome:spec": "npx cypress run --spec \"./cypress/e2e/ui/add-book-to-collection.cy.js,delete-book.cy.js,search-books.cy.js\" --headed --browser chrome",
+		"cy:run:chrome:tags": "npx cypress run --env grepTags='@add_book @register_student_form' --headed --browser chrome",
+		"cy:run:firefox:spec": "npx cypress run --spec \"./cypress/e2e/ui/register-student-form.cy.js,login.cy.js\" --headed --browser firefox",
+		"cy:run:firefox:tags": "npx cypress run --env grepTags='@login,@search_book' --headed --browser firefox",
+		"cy:run-dashboard": "npx cypress run --spec \"./cypress/e2e/ui/*.cy.js\" --headed --browser chrome --record --key 8bbebe31-6ed1-4d9a-8fb4-94dc053c7f1d --parallel --group \"UI Chrome\"",
+		"clean:reports": "rimraf cypress/reports/allure-results && rimraf cypress/reports/allure-reports",
+		"generate:report": "allure generate cypress/reports/allure-results --clean -o cypress/reports/allure-reports",
+		"test": "npm run clean:reports && npm run cy:run && npm run generate:report"
+	},
+	"keywords": [
+		"Cypress"
+	],
+	"author": "hoa doan",
+	"license": "ISC",
+	"devDependencies": {
+		"@cypress/grep": "^3.1.5",
+		"@cypress/xpath": "^2.0.3",
+		"@shelex/cypress-allure-plugin": "^2.37.0",
+		"allure-commandline": "^2.22.0",
+		"cypress": "^12.7.0",
+		"cypress-file-upload": "^5.0.8",
+		"moment": "^2.29.4",
+		"prettier": "^2.3.2",
+		"rimraf": "^5.0.1"
+	}
+}
